@@ -18,7 +18,7 @@ pygame.font.init()
 # -----------------ОКНО-----------------
 width, height = pyautogui.size().width, pyautogui.size().height
 SIZE = (width, height)
-window = pygame.display.set_mode(SIZE, pygame.FULLSCREEN)
+window = pygame.display.set_mode(SIZE)
 pygame.display.set_caption("Cyber cringe 2D city")
 
 display = pygame.Surface(SIZE)
@@ -219,7 +219,7 @@ class Game:
         try:
             client.main(count_players=count_players, ip=ip, port=port)
         except:
-            return
+            return 0,0
         iteration = 0
 
 
@@ -357,7 +357,7 @@ class Game:
             iteration += 1
             self.FPS.tick(120)
 
-
+        return 0,0
 
 class Camera:
     def __init__(self, camera_func, width, height):
